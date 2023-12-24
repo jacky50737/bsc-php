@@ -1,4 +1,4 @@
-[English](./README.md) | [繁體中文](./README-TW.md) | 繁體中文
+[English](./README.md) | 繁體中文 | [简体中文](./README-CN.md)
 
 <h1 align="center">BSC-PHP</h1>
 
@@ -11,68 +11,75 @@
 
 ## 概述
 
-BSC-PHP 目前支持币安智能链的 BNB 和 BEP20 数字资产常用的生成地址，发起转账，查询余额，离线签名等功能。
+BSC-PHP 目前支援币安智能链的 BNB 和 BEP20 數位資產常用的生成地址，發起轉帳，查詢餘額，離線簽名等功能。
 
-## 特点
+## 特點
 
-1. 一套写法兼容 TRON 网络中 TRX 货币和 TRC 系列所有通证
-1. 接口方法可可灵活增减
+1. 一套寫法兼容 TRON 網路中 TRX 貨幣和 TRC 系列所有通證
+1. 介面方法可靈活增減
 
-## 支持方法
+## 支援方法
 
-### wallet
-- *生成私钥创建账户 `newAccountByPrivateKey()`
-- *生成助记词创建账户 `newAccountByMnemonic()`
-- 使用助记词还原账户 `revertAccountByMnemonic(string $mnemonic)`
-- 根据私钥得到地址 `revertAccountByPrivateKey(string $privateKey)`
+### 錢包
+
+- \*產生私鑰創建帳戶 `newAccountByPrivateKey()`
+- \*產生助憶詞創建帳戶 `newAccountByMnemonic()`
+- 使用助憶詞還原帳戶 `revertAccountByMnemonic(string $mnemonic)`
+- 根據私鑰得到地址 `revertAccountByPrivateKey(string $privateKey)`
 
 ### Bnb & BEP20
-- *查询余额(BNB) `bnbBalance(string $address)`
-- *查询余额(BEP20) `balance(string $address)`
-- *交易转账(离线签名) `transfer(string $from, string $to, float $amount)`
-- 查询最新区块 `blockNumber()`
-- 根据区块链查询信息 `getBlockByNumber(int $blockID)`
-- 根据交易哈希返回交易的收据 `getTransactionReceipt(string $txHash)`
-- *根据交易哈希返回关于所请求交易的信息 `getTransactionByHash(string $txHash)`
-- *根据交易哈希查询交易状态 `receiptStatus(string $txHash)`
 
-## 快速开始
+- \*查詢餘額(BNB) `bnbBalance(string $address)`
+- \*查詢餘額(BEP20) `balance(string $address)`
+- \*交易轉帳(離線簽名) `transfer(string $from, string $to, float $amount)`
+- 查詢最新區塊 `blockNumber()`
+- 根據區塊鏈查詢資訊 `getBlockByNumber(int $blockID)`
+- 根據交易雜湊返回交易的收據 `getTransactionReceipt(string $txHash)`
+- \*根據交易雜湊返回關於所請求交易的資訊 `getTransactionByHash(string $txHash)`
+- \*根據交易雜湊查詢交易狀態 `receiptStatus(string $txHash)`
 
-### 安装
+## 快速開始
+
+### 安裝
 
 PHP8
-``` php
-composer require fenguoz/bsc-php
+
+```php
+composer require jacky50737/bsc-php
+
 ```
 
 or PHP7
-``` php
-composer require fenguoz/bsc-php ~1.0
+
+```php
+composer require jacky50737/bsc-php ~1.0
 ```
 
-### 接口调用
+### 介面
 
 #### Wallet
-``` php
+
+```php
 $wallet = new \Binance\Wallet();
 
-// 生成私钥创建账户
+// 產生私鑰建立帳戶
 $wallet->newAccountByPrivateKey();
 
-// 生成助记词创建账户
+// 產生助憶詞建立帳戶
 $wallet->newAccountByMnemonic();
 
-// 使用助记词还原账户
+// 使用助憶詞還原帳戶
 $mnemonic = 'elite link code extra twist autumn flower purse excuse harsh kitchen whip';
 $wallet->revertAccountByMnemonic($mnemonic);
 
-// 根据私钥得到地址
+// 根據私鑰得到地址
 $privateKey = '5e9340935f4c02628cec5d04cc281012537cafa8dae0e27ff56563b8dffab368';
 $wallet->revertAccountByPrivateKey($privateKey);
-``` 
+```
 
 #### Bnb & BEP20
-``` php
+
+```php
 ## 方法 1 : BSC RPC Nodes
 $uri = 'https://bsc-dataseed1.defibit.io/';// Mainnet
 // $uri = 'https://data-seed-prebsc-1-s1.binance.org:8545/';// Testnet
@@ -90,38 +97,38 @@ $config = [
 ];
 $bep20 = new \Binance\BEP20($api, $config);
 
-// 查询余额
+// 查詢餘額
 $address = '0x1667ca2c72d8699f0c34c55ea00b60eef021be3a';
 $bnb->bnbBalance($address);
 $bep20->balance($address);
 
-// 交易转账(离线签名)
+// 交易轉帳(離線簽名)
 $from = '0x1667ca2c72d8699f0c34c55ea00b60eef021be3a';
 $to = '0x1667ca2c72d8699f0c34c55ea00b60eef021****';
 $amount = 0.1;
 $bnb->transfer($from, $to, $amount);
 $bep20->transfer($from, $to, $amount);
 
-// 查询最新区块
+// 查詢最新區塊
 $bnb->blockNumber();
 $bep20->blockNumber();
 
-// 根据区块链查询信息
+// 根據區塊鏈查詢資訊
 $blockID = 24631027;
 $bnb->getBlockByNumber($blockID);
 $bep20->getBlockByNumber($blockID);
 
-// 根据交易哈希返回交易的收据
+// 根據交易雜湊返回交易的收據
 $txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
 $bnb->getTransactionReceipt($txHash);
 $bep20->getTransactionReceipt($txHash);
 
-// 根据交易哈希返回关于所请求交易的信息
+// 根據交易雜湊返回關於所請求交易的資訊
 $txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
 $bnb->getTransactionByHash($txHash);
 $bep20->getTransactionByHash($txHash);
 
-// 根据交易哈希查询交易状态
+// 根據交易雜湊查詢交易狀態
 $txHash = '0x4dd20d01af4c621d2fc293dff17a8fd8403ea3577988bfb245a18bfb6f50604b';
 $bnb->receiptStatus($txHash);
 $bep20->receiptStatus($txHash);

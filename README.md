@@ -1,12 +1,12 @@
-English | [中文](./README-CN.md)
+English | [繁體中文](./README-TW.md) | [简体中文](./README-CN.md)
 
 <h1 align="center">BSC-PHP</h1>
 
 <p align="center">
-  <a href="https://github.com/Fenguoz/bsc-php/releases"><img src="https://poser.pugx.org/Fenguoz/bsc-php/v/stable" alt="Stable Version"></a>
-  <a href="https://www.php.net"><img src="https://img.shields.io/badge/php-%3E=7.2-brightgreen.svg?maxAge=2592000" alt="Php Version"></a>
-  <a href="https://github.com/Fenguoz/bsc-php/blob/master/LICENSE"><img src="https://img.shields.io/github/license/fenguoz/bsc-php.svg?maxAge=2592000" alt="bsc-php License"></a>
-  <a href="https://packagist.org/packages/Fenguoz/bsc-php"><img src="https://poser.pugx.org/Fenguoz/bsc-php/downloads" alt="Total Downloads"></a>
+  <a href="https://github.com/jacky50737/bsc-php/releases"><img src="https://poser.pugx.org/jacky50737/bsc-php/v/stable" alt="Stable Version"></a>
+  <a href="https://www.php.net"><img src="https://img.shields.io/badge/php-%3E=8.1-brightgreen.svg?maxAge=2592000" alt="Php Version"></a>
+  <a href="https://github.com/jacky50737/bsc-php/blob/master/LICENSE"><img src="https://img.shields.io/github/license/jacky50737/bsc-php.svg?maxAge=2592000" alt="bsc-php License"></a>
+  <a href="https://packagist.org/packages/jacky50737/bsc-php"><img src="https://poser.pugx.org/jacky50737/bsc-php/downloads" alt="Total Downloads"></a>
 </p>
 
 ## Introduction
@@ -21,40 +21,44 @@ Support Binance's BNB and BEP20, which include functions such as address creatio
 ## Support Method
 
 ### wallet
-- *Generate a private key to create an account `newAccountByPrivateKey()`
-- *Generate mnemonic and create an account `newAccountByMnemonic()`
+
+- \*Generate a private key to create an account `newAccountByPrivateKey()`
+- \*Generate mnemonic and create an account `newAccountByMnemonic()`
 - Restore account using mnemonic `revertAccountByMnemonic(string $mnemonic)`
 - Get the address according to the private key `revertAccountByPrivateKey(string $privateKey)`
 
 ### Bnb & BEP20
-- *Check balances(BNB) `bnbBalance(string $address)`
-- *Check balances(BEP20) `balance(string $address)`
+
+- \*Check balances(BNB) `bnbBalance(string $address)`
+- \*Check balances(BEP20) `balance(string $address)`
 - Transaction transfer (offline signature) `transfer(string $from, string $to, float $amount)`
 - Query the latest block `blockNumber()`
 - Query information according to the blockchain `getBlockByNumber(int $blockID)`
 - Returns the receipt of a transaction by transaction hash `getTransactionReceipt(string $txHash)`
-- *Returns the information about a transaction requested by transaction hash `getTransactionByHash(string $txHash)`
-- *Query transaction status based on transaction hash `receiptStatus(string $txHash)`
-
+- \*Returns the information about a transaction requested by transaction hash `getTransactionByHash(string $txHash)`
+- \*Query transaction status based on transaction hash `receiptStatus(string $txHash)`
 
 ## Quick Start
 
 ### Install
 
 PHP8
-``` php
-composer require fenguoz/bsc-php
+
+```php
+composer require jacky50737/bsc-php
 ```
 
 or PHP7
-``` php
-composer require fenguoz/bsc-php ~1.0
+
+```php
+composer require jacky50737/bsc-php ~1.0
 ```
 
 ### Interface
 
 #### Wallet
-``` php
+
+```php
 $wallet = new \Binance\Wallet();
 
 // Generate a private key to create an account
@@ -70,10 +74,11 @@ $wallet->revertAccountByMnemonic($mnemonic);
 // Get the address according to the private key
 $privateKey = '5e9340935f4c02628cec5d04cc281012537cafa8dae0e27ff56563b8dffab368';
 $wallet->revertAccountByPrivateKey($privateKey);
-``` 
+```
 
 #### Bnb & BEP20
-``` php
+
+```php
 ## Method 1 : BSC RPC Nodes
 $uri = 'https://bsc-dataseed1.defibit.io/';// Mainnet
 // $uri = 'https://data-seed-prebsc-1-s1.binance.org:8545/';// Testnet
@@ -135,10 +140,4 @@ $bep20->receiptStatus($txHash);
 
 ## 🌟🌟
 
-[![Stargazers over time](https://starchart.cc/Fenguoz/bsc-php.svg)](https://starchart.cc/Fenguoz/bsc-php)
-
-## Cooperate
-
-Contact
-- WX：zgf243944672
-- QQ：243944672
+[![Stargazers over time](https://starchart.cc/jacky50737/bsc-php.svg)](https://starchart.cc/jacky50737/bsc-php)
