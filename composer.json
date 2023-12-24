@@ -1,6 +1,6 @@
 {
-    "name": "fenguoz/bsc-php",
-    "description": "Support Binance's BNB and BEP20, which include functions such as address creation, balance query, transaction transfer, query the latest blockchain, query information based on the blockchain, and query information based on the transaction hash",
+    "name": "jacky50737/bsc-php",
+    "description": "支援 Binance 的 BNB 和 BEP20，包括地址創建、餘額查詢、交易轉帳、查詢最新區塊鏈、基於區塊鏈查詢資訊以及基於交易哈希查詢資訊等功能",
     "keywords": [
         "php",
         "binance",
@@ -8,12 +8,12 @@
         "bep20"
     ],
     "type": "library",
-    "homepage": "https://github.com/Fenguoz/bsc-php",
+    "homepage": "https://github.com/jacky50737/bsc-php",
     "license": "MIT",
     "authors": [
         {
-            "name": "Fenguoz",
-            "email": "243944672@qq.com"
+            "name": "JackyKuo",
+            "email": "jacky50737@gmail.com"
         }
     ],
     "require": {
@@ -24,7 +24,7 @@
         "sop/crypto-encoding": "^0.2.0",
         "sop/crypto-types": "^0.2.1",
         "phpseclib/phpseclib": "~2.0.11",
-        "guzzlehttp/guzzle": "^6.5",
+        "guzzlehttp/guzzle": "^7.5",
         "fenguoz/bip39-mnemonic-php": "~1.2.0",
         "fenguoz/minter-php-bip-44": "~1.0",
         "ext-gmp": "*",
